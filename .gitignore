@@ -1,0 +1,6 @@
+.env
+profile.json
+__pycache__/
+*.pyc
+venv/
+.venv/
