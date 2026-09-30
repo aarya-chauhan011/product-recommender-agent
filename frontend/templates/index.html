@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Recommender Agent</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Product Recommender Agent</h1>
+      <button id="reset-btn">Reset preferences</button>
+    </header>
+
+    <div id="profile" class="profile">Saved preferences: loading...</div>
+
+    <div id="messages" class="messages">
+      <div class="msg bot">Hi! What are you looking for today? I have Jewellery and Home Decor items.</div>
+    </div>
+
+    <div class="input-row">
+      <input id="user-input" type="text" placeholder="e.g. I need jewellery under 25000" autocomplete="off">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+  <script src="/static/script.js"></script>
+</body>
+</html>

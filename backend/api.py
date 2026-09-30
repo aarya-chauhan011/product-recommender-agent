@@ -1,14 +1,20 @@
 """FastAPI layer for the product recommender agent."""
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from backend.functions import profile, reset_profile
 from backend.orchestrator import chat
 
-app = FastAPI(title="Product Recommender Agent")
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 
-# Frontend ko API call karne dene ke liye
+app = FastAPI(title="Product Recommender Agent")
+app.mount("/static", StaticFiles(directory=FRONTEND_DIR / "static"), name="static")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -31,7 +37,7 @@ class ChatResponse(BaseModel):
 
 @app.get("/")
 def home():
-    return {"status": "ok", "message": "Product Recommender Agent API"}
+    return FileResponse(FRONTEND_DIR / "templates" / "index.html")
 
 
 @app.post("/chat", response_model=ChatResponse)
