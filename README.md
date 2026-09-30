@@ -15,4 +15,4 @@ Python, Groq API, pandas
 1. Clone the repo
 2. `pip install -r requirements.txt`
 3. Copy `.env.example` to `.env` and add your GROQ_API_KEY
-4. Run `python recommender.py`
+4. Run `python main.py`
