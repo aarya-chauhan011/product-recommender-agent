@@ -1,29 +1,86 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Product Recommender Agent</title>
+  <title>ShopMate - AI Product Recommender</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="app">
-    <header>
-      <h1>Product Recommender Agent</h1>
-      <button id="reset-btn">Reset preferences</button>
-    </header>
 
-    <div id="profile" class="profile">Saved preferences: loading...</div>
-
-    <div id="messages" class="messages">
-      <div class="msg bot">Hi! What are you looking for today? I have Jewellery and Home Decor items.</div>
+  <nav class="nav">
+    <div class="logo">✨ ShopMate</div>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#shop" class="btn-sm">Try it</a>
     </div>
+  </nav>
 
-    <div class="input-row">
-      <input id="user-input" type="text" placeholder="e.g. I need jewellery under 25000" autocomplete="off">
-      <button id="send-btn">Send</button>
+  <header class="hero">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="hero-text">
+      <span class="pill">AI-powered shopping assistant</span>
+      <h1>Find what you love,<br><span class="grad">just by chatting.</span></h1>
+      <p>Tell it your budget, favourite brands and style. It remembers your preferences and recommends the best products for you.</p>
+      <a href="#shop" class="btn">Start shopping →</a>
     </div>
-  </div>
+  </header>
+
+  <section id="features" class="section reveal">
+    <h2>Why ShopMate</h2>
+    <div class="grid3">
+      <div class="card"><div class="icon">💬</div><h3>Chat naturally</h3><p>Just say "I need jewellery under 25000". No filters or forms.</p></div>
+      <div class="card"><div class="icon">🧠</div><h3>Remembers you</h3><p>Your budget, brands and features are saved for your next visit.</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Smart ranking</h3><p>Products are filtered by your needs and ranked by what you like.</p></div>
+    </div>
+  </section>
+
+  <section id="how" class="section reveal">
+    <h2>How it works</h2>
+    <div class="grid3">
+      <div class="card"><div class="num">1</div><h3>You chat</h3><p>Describe what you are looking for.</p></div>
+      <div class="card"><div class="num">2</div><h3>AI understands</h3><p>It picks out category, budget, brands and features.</p></div>
+      <div class="card"><div class="num">3</div><h3>You get picks</h3><p>Top products appear with a clear explanation.</p></div>
+    </div>
+  </section>
+
+  <section id="shop" class="section reveal">
+    <h2>Chat with your assistant</h2>
+    <div class="shop">
+
+      <div class="chat">
+        <div class="chat-head">
+          <span>🤖 Shopping Assistant</span>
+          <button id="reset-btn">Reset</button>
+        </div>
+        <div id="profile" class="chips"></div>
+        <div id="messages" class="messages">
+          <div class="msg bot">Hi! What are you looking for today? I have Jewellery and Home Decor items.</div>
+        </div>
+        <div class="quick">
+          <button data-q="I need jewellery under 25000">💍 Jewellery under 25000</button>
+          <button data-q="Show me home decor">🏺 Home decor</button>
+        </div>
+        <div class="input-row">
+          <input id="user-input" type="text" placeholder="Type your message..." autocomplete="off">
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+
+      <div class="results">
+        <h3>Recommended for you</h3>
+        <div id="products" class="products">
+          <p class="empty">Your recommendations will appear here.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>Built with Python, FastAPI and Groq · Product Recommender Agent</footer>
+
   <script src="/static/script.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from backend.functions import profile, reset_profile
+from backend.functions import profile, reset_profile, find_products
 from backend.orchestrator import chat
 
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
@@ -33,6 +33,7 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     reply: str
     profile: dict
+    products: list = []
 
 
 @app.get("/")
@@ -43,7 +44,11 @@ def home():
 @app.post("/chat", response_model=ChatResponse)
 def chat_endpoint(req: ChatRequest):
     reply = chat(req.message, history)
-    return ChatResponse(reply=str(reply), profile=profile)
+    return ChatResponse(
+        reply=str(reply),
+        profile=profile,
+        products=find_products()[:3],
+    )
 
 
 @app.get("/profile")

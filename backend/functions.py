@@ -35,7 +35,6 @@ def save_profile():
 
 
 def reset_profile():
-    # Modify the same dict in place so other modules keep seeing the update
     profile.clear()
     profile.update(empty_profile())
     save_profile()
